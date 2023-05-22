@@ -29,3 +29,9 @@ Route::put('/password/update', [UpdateController::class, 'updatePassword'])->mid
 Route::get('/users/search', [UpdateController::class, 'search'])->middleware('auth:sanctum');
 Route::get('/users/user/info/{id}', [UpdateController::class, 'userInfo'])->middleware('auth:sanctum');
 Route::delete('/users/delete/{id}', [LoginController::class, 'delete'])->middleware('auth:sanctum');
+
+// system admin Department
+Route::post('/admin/depart/add', [DepartmentController::class, 'create'])->middleware('auth:sanctum');
+Route::delete('/admin/depart/delete/{id}', [DepartmentController::class, 'deleteDepartment'])->middleware('auth:sanctum');
+Route::get('/admin/departments', [DepartmentController::class, 'getDepartments'])->middleware('auth:sanctum');
+Route::get('/admin/departments/{id}', [DepartmentController::class, 'searchDepartment'])->middleware('auth:sanctum');
