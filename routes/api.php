@@ -35,3 +35,14 @@ Route::post('/admin/depart/add', [DepartmentController::class, 'create'])->middl
 Route::delete('/admin/depart/delete/{id}', [DepartmentController::class, 'deleteDepartment'])->middleware('auth:sanctum');
 Route::get('/admin/departments', [DepartmentController::class, 'getDepartments'])->middleware('auth:sanctum');
 Route::get('/admin/departments/{id}', [DepartmentController::class, 'searchDepartment'])->middleware('auth:sanctum');
+
+//Mhmoudsyd-->Done Add SubjectController with requried functions
+Route::post('/admin/subject/add', [SubjectController::class, 'store'])->middleware('auth:sanctum');
+Route::delete('/admin/subject/delete/{id}', [SubjectController::class, 'destroy'])->middleware('auth:sanctum');
+Route::get('/admin/subjects', [SubjectController::class, 'showAllSubjects'])->middleware('auth:sanctum');
+Route::get('/admin/subject', [SubjectController::class, 'show']);
+Route::put('/admin/subject/update/{id}', [SubjectController::class, 'update'])->middleware('auth:sanctum');
+
+
+//doctor
+Route::get('/doctor/subjects', [DoctorController::class, 'getSubs'])->middleware('auth:sanctum');
