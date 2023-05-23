@@ -43,6 +43,12 @@ Route::get('/admin/subjects', [SubjectController::class, 'showAllSubjects'])->mi
 Route::get('/admin/subject', [SubjectController::class, 'show']);
 Route::put('/admin/subject/update/{id}', [SubjectController::class, 'update'])->middleware('auth:sanctum');
 
+// Account Maker
+Route::get('/admin/users', [AccountMakerController::class, 'index'])->middleware('auth:sanctum');
+Route::post('/admin/user/create', [AccountMakerController::class, 'store'])->middleware('auth:sanctum');
+// Absence List
+Route::get('/admin/users/absence', [AccountMakerController::class, 'show'])->middleware('auth:sanctum');
+
 
 //doctor
 Route::get('/doctor/subjects', [DoctorController::class, 'getSubs'])->middleware('auth:sanctum');
