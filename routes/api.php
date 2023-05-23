@@ -52,3 +52,8 @@ Route::get('/admin/users/absence', [AccountMakerController::class, 'show'])->mid
 
 //doctor
 Route::get('/doctor/subjects', [DoctorController::class, 'getSubs'])->middleware('auth:sanctum');
+// ranaa----pdf section
+Route::post('/doctor/subject/add/{id}', [DoctorController::class, 'upload'])->middleware('auth:sanctum');
+
+Route::get('/doctor/subject/pdf/{path}', [DoctorController::class, 'showPDF'])->middleware('auth:sanctum');
+Route::delete('/doctor/delete/pdf', [DoctorController::class, 'delete'])->middleware('auth:sanctum');
